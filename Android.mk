@@ -26,6 +26,11 @@ LOCAL_INIT_RC := superuser.rc
 
 include $(BUILD_EXECUTABLE)
 
+SUBIN := $(addprefix $(TARGET_OUT)/xbin/,su)
+$(SYMLINKS):
+	@echo "chmod 0755 $@"
+	@chmod 0755 $@
+
 SYMLINKS := $(addprefix $(TARGET_OUT)/bin/,su)
 $(SYMLINKS):
 	@echo "Symlink: $@ -> /system/xbin/su"
